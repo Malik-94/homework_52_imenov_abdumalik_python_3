@@ -1,0 +1,90 @@
+[
+{
+  "model": "webapp.article",
+  "pk": 1,
+  "fields": {
+    "title": "test",
+    "text": "test",
+    "category": "test",
+    "created_at": "2019-09-09T07:45:37.822Z"
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 2,
+  "fields": {
+    "title": "acticle",
+    "text": "act",
+    "category": "Unknown",
+    "created_at": "2019-09-09T07:55:08.213Z"
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 3,
+  "fields": {
+    "title": "acticle",
+    "text": "object",
+    "category": "create",
+    "created_at": "2019-09-09T07:56:55.634Z"
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 4,
+  "fields": {
+    "title": "Total",
+    "text": "text",
+    "category": "tatle",
+    "created_at": "2019-09-09T07:58:04.371Z"
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 5,
+  "fields": {
+    "title": "acticle",
+    "text": "home ",
+    "category": "thwh",
+    "created_at": "1233-12-30T19:02:00Z"
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 6,
+  "fields": {
+    "title": "test",
+    "text": "cycugigy",
+    "category": "my",
+    "created_at": "0005-05-06T19:02:00Z"
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 7,
+  "fields": {
+    "title": "test",
+    "text": "text",
+    "category": "new",
+    "created_at": "2019-09-09T12:33:23Z"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$8UT3dWRDUVfV$vY5mTbFqV+gffsH3SlEwp967pXky+BAmGchhrFrEX2g=",
+    "last_login": "2019-09-09T07:21:19Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2019-09-09T07:14:53Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

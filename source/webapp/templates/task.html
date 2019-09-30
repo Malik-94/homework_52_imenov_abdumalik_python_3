@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}{{ task.title}}{% endblock %}
+{% block menu %}
+    <li><a href="{% url 'task_update' task.pk %}">Edit</a></li>
+    <li><a href="{% url 'task_delete' task.pk %}">Delete</a></li>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1>{{ task.title }}</h1>
+        <p>Category: {{ task.get_category_display }}</p>
+        <p>Created by {{ task.author }} at {{ task.created_at|date:'Y-m-d H:i:s' }}</p>
+        <div class="pre">{{ task.text }}</div>
+    </div>
+{% endblock %}

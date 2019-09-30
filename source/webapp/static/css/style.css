@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #123456;
+    color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
