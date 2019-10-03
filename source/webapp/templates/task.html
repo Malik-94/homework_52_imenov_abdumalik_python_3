@@ -6,9 +6,9 @@
 {% endblock %}
 {% block content %}
     <div class="container">
-        <h1>{{ task.title }}</h1>
-        <p>Category: {{ task.get_category_display }}</p>
-        <p>Created by {{ task.author }} at {{ task.created_at|date:'Y-m-d H:i:s' }}</p>
-        <div class="pre">{{ task.text }}</div>
+        <h1>{{ task.summary}}</h1>
+        <p>Category: {{ task.description }}</p>
+        <p>Created by {{ task.status }} at {{ task.created_at|date:'Y-m-d H:i:s' }}</p>
+        <div class="pre">{{ task.type }}</div>
     </div>
 {% endblock %}

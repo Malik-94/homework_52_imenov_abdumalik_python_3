@@ -14,8 +14,10 @@
     <div class="container">
         <ul class="menu">
             <li><a href="{% url 'index' %}">Home</a></li>
-            {% block menu %}{% endblock %}
-        </ul>
+           <li><a href="{% url 'task_add'%}">Create</a></li>
+             {% block menu %}
+            {% endblock %}
+</ul>
     </div>
 </nav>
 <div class="container">

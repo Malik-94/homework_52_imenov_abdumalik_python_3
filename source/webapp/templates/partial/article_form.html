@@ -12,9 +12,9 @@
         {% endif %}
     </label></p>
     {% if field.errors %}
-        <p>{{ field|add_class:'field-error form-control' }}</p>
+        <p>{{ field|add_class:'field-error form-control'}}</p>
     {% else %}
-        <p>{{ field|add_class:'form-control' }}</p>
+        <p>{{ field|add_class:'form-control'}}</p>
     {% endif %}
     {% for error in field.errors %}
         <p class="form-error">{{ error }}</p>

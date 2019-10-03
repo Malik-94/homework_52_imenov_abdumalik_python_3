@@ -1,80 +1,63 @@
 [
 {
-  "model": "webapp.article",
-  "pk": 1,
-  "fields": {
-    "title": "test",
-    "text": "test",
-    "category": "test",
-    "created_at": "2019-09-09T07:45:37.822Z"
-  }
-},
-{
-  "model": "webapp.article",
-  "pk": 2,
-  "fields": {
-    "title": "acticle",
-    "text": "act",
-    "category": "Unknown",
-    "created_at": "2019-09-09T07:55:08.213Z"
-  }
-},
-{
-  "model": "webapp.article",
+  "model": "webapp.task",
   "pk": 3,
   "fields": {
-    "title": "acticle",
-    "text": "object",
-    "category": "create",
-    "created_at": "2019-09-09T07:56:55.634Z"
+    "summary": "\u043d\u0430\u043f\u0438\u0441\u0430\u0442\u044c \u043c\u043e\u0434\u0435\u043b\u044c",
+    "description": "\u043f\u043b\u0435\u0435\u0440",
+    "status": 3,
+    "type": 3,
+    "created_at": "2019-10-03T13:02:33.694Z"
   }
 },
 {
-  "model": "webapp.article",
-  "pk": 4,
+  "model": "webapp.status",
+  "pk": 1,
   "fields": {
-    "title": "Total",
-    "text": "text",
-    "category": "tatle",
-    "created_at": "2019-09-09T07:58:04.371Z"
+    "statuses": "new"
   }
 },
 {
-  "model": "webapp.article",
-  "pk": 5,
+  "model": "webapp.status",
+  "pk": 2,
   "fields": {
-    "title": "acticle",
-    "text": "home ",
-    "category": "thwh",
-    "created_at": "1233-12-30T19:02:00Z"
+    "statuses": "done"
   }
 },
 {
-  "model": "webapp.article",
-  "pk": 6,
+  "model": "webapp.status",
+  "pk": 3,
   "fields": {
-    "title": "test",
-    "text": "cycugigy",
-    "category": "my",
-    "created_at": "0005-05-06T19:02:00Z"
+    "statuses": "in_progress"
   }
 },
 {
-  "model": "webapp.article",
-  "pk": 7,
+  "model": "webapp.type",
+  "pk": 1,
   "fields": {
-    "title": "test",
-    "text": "text",
-    "category": "new",
-    "created_at": "2019-09-09T12:33:23Z"
+    "types": "task"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 2,
+  "fields": {
+    "types": "bug"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 3,
+  "fields": {
+    "types": "enhancement"
   }
 },
 {
   "model": "auth.user",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$150000$8UT3dWRDUVfV$vY5mTbFqV+gffsH3SlEwp967pXky+BAmGchhrFrEX2g=",
-    "last_login": "2019-09-09T07:21:19Z",
+    "password": "pbkdf2_sha256$150000$YhecwVGBKBhj$+8oQF6BqArzhmaYVTNkNzyMTV7eF51HP+UdqfWUEhwM=",
+    "last_login": "2019-10-03T12:22:03.271Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -82,7 +65,7 @@
     "email": "",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2019-09-09T07:14:53Z",
+    "date_joined": "2019-10-03T12:21:26.154Z",
     "groups": [],
     "user_permissions": []
   }

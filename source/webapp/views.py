@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View, TemplateView
-from webapp.forms import ArticleForm
+from webapp.forms import TaskForm
 from webapp.models import Task
 
 
@@ -27,19 +27,19 @@ class TaskCreateView(View):
     def post (self, request, *args, **kwargs):
         form = TaskForm(data=request.POST)
         if form.is_valid():
-            task = task.objects.create(
+            task = Task.objects.create(
             summary=form.cleaned_data['summary'],
             description=form.cleaned_data['description'],
             status=form.cleaned_data['status'],
             type=form.cleaned_data['type'],
-            created_at = form.cleaned_data['created_at']
+            # created_at = form.cleaned_data['created_at']
             )
             return redirect('task_view', pk=task.pk)
         else:
             return render(request, 'create.html', context={'form': form})
 
 class TaskUpdateView(View):
-    def get (self, request , *args, **kwargs):
+    def get (self, request, pk, *args, **kwargs):
         task = get_object_or_404(Task, pk=pk)
         if request.method == 'GET':
             form = TaskForm(data={
@@ -50,12 +50,13 @@ class TaskUpdateView(View):
                 'status': task.status
             })
             return render(request, 'update.html', context={'form': form, 'task': task})
-    def post (self, request , *args, **kwargs):
+
+    def post (self, request, pk, *args, **kwargs):
             form = TaskForm(data=request.POST)
+            task = get_object_or_404(Task, pk=pk)
             if form.is_valid():
                 task.summary = form.cleaned_data['summary']
                 task.description = form.cleaned_data['description']
-                task.created_at = form.cleaned_data['created_at']
                 task.type = form.cleaned_data['type']
                 task.status = form.cleaned_data['status']
                 task.save()
@@ -63,11 +64,14 @@ class TaskUpdateView(View):
             else:
                 return render(request, 'update.html', context={'form': form, 'task': task})
 
+
 class TaskDeleteView(View):
-    def get (self,request , *args, **kwargs):
+    def get (self,request , pk, *args, **kwargs):
         task = get_object_or_404(Task, pk=pk)
         if request.method == 'GET':
             return render(request, 'delete.html', context={'task': task})
-    def post (selfrequest , *args, **kwargs):
+
+    def post (self,request, *args, **kwargs):
+        task = get_object_or_404(Task, pk=kwargs.get('pk'))
         task.delete()
         return redirect('index')
