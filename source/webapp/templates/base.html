@@ -15,6 +15,9 @@
         <ul class="menu">
             <li><a href="{% url 'index' %}">Home</a></li>
            <li><a href="{% url 'task_add'%}">Create</a></li>
+           <li><a href="{% url 'status_list'%}">All status</a></li>
+            <li><a href="{% url 'status_add' %}">Createe</a></li>
+
              {% block menu %}
             {% endblock %}
 </ul>

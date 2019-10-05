@@ -8,7 +8,6 @@ class Task(models.Model):
     type = models.ForeignKey('webapp.Type' , related_name='task_type', on_delete=models.PROTECT , verbose_name='Тип')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
 
-
     def __str__(self):
         return "{}. {}".format(self.pk, self.summary)
 
