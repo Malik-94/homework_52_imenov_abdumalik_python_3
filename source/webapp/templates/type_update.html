@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Update type{% endblock %}
+{% block menu %}
+    <li><a href="{% url 'type_update' type.pk %}">View</a></li>
+{% endblock %}
+{% block content %}
+    <h1>Update type</h1>
+    <form method="POST" action="{% url "type_update" type.pk %}">
+        {% include 'partial/article_form.html' with button_text="Update" %}
+    </form>
+{% endblock %}
