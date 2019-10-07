@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views.generic import View, TemplateView
 from django.views.generic import TemplateView
 from webapp.forms import TaskForm
 from webapp.models import Task
 from django.views.generic import ListView,CreateView
 from webapp.views.base_views import UpdateView
+from webapp.views.base_views import DeleteView
+
 
 
 
@@ -58,14 +60,22 @@ class TaskUpdateView(UpdateView):
         return reverse ('task_view', kwargs={'pk': self.object.pk})
 
 
-class TaskDeleteView(View):
-    def get (self,request , pk, *args, **kwargs):
-        task = get_object_or_404(Task, pk=pk)
-        if request.method == 'GET':
-            return render(request, 'task/delete.html', context={'task': task})
 
-    def post (self,request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=kwargs.get('pk'))
-        task.delete()
-        return redirect('index')
+class TaskDeleteView(DeleteView):
+    model = Task
+    template_name = 'task/delete.html'
+    context_key = 'task'
+    redirect_url = reverse_lazy('index')
 
+#
+# class TaskDeleteView(View):
+#     def get (self,request , pk, *args, **kwargs):
+#         task = get_object_or_404(Task, pk=pk)
+#         if request.method == 'GET':
+#             return render(request, 'task/delete.html', context={'task': task})
+#
+#     def post (self,request, *args, **kwargs):
+#         task = get_object_or_404(Task, pk=kwargs.get('pk'))
+#         task.delete()
+#         return redirect('index')
+#
