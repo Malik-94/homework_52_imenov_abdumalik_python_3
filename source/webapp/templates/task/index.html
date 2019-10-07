@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 {% block menu %}
+
 {#    <li><a href="{% url 'task_add' %}">Add Task</a></li>#}
 {% endblock %}
 {% block content %}
     <h1>task:</h1>
+
+        {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+       {% endif %}
+
     <hr/>
     {% for task in task %}
         <h2>{{ task.summary }}</h2>
@@ -14,3 +20,4 @@
         <hr/>
     {% endfor %}
 {% endblock %}
+
