@@ -2,14 +2,24 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View, TemplateView
 from webapp.models import Type
 from webapp.forms import TypeForm
+from django.views.generic import ListView
 
 
-class TypeList(View):
-    def get(self, request, *args, **kwargs):
-        type = Type.objects.all()
-        return render(request, 'type/type_read.html', context={
-            'type': type
-        })
+class TypeList(ListView):
+    context_object_name = 'types'
+    model = Type
+    template_name = 'type/type.html'
+
+
+
+class TypeIndex(TemplateView):
+    template_name = 'type.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['type'] = Type.objects.all()
+        return context
+
 
 
 class TypeCreateView(View):
@@ -27,7 +37,7 @@ class TypeCreateView(View):
             )
             return redirect('type_add')
         else:
-            return render(request, 'type/type_create.html', context={'form': form})
+            return render(request,'type/type_create.html', context={'form': form})
 
 
 class TypeUpdateView(View):

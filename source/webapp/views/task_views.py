@@ -1,22 +1,29 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View, TemplateView
+from django.views.generic import TemplateView
 from webapp.forms import TaskForm
 from webapp.models import Task
+from django.views.generic import ListView
 
 
-class IndexView(View):
-    def get(self, request, *args, **kwargs):
-        task = Task.objects.all()
-        return render(request, 'task/index.html', context={
-            'task': task
-        })
+class IndexView(ListView):
+    context_object_name = 'task'
+    model = Task
+    template_name = 'task/index.html'
+    # ordering = ['created_at']
+    # paginate_by = 2
+    # paginate_orphans = 1 pagination
 
-class TaskView(View):
-    def get (self, request, pk):
-        task = get_object_or_404(Task, pk=pk)
-        return render(request, 'task/task.html', context={
-            'task': task
-        })
+
+class TaskView(TemplateView):
+    template_name = 'task/task.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        task_pk = kwargs.get('pk')
+        context['task'] = get_object_or_404(Task, pk=task_pk)
+        return context
+
 
 class TaskCreateView(View):
     def get (self,request, *args, **kwargs):

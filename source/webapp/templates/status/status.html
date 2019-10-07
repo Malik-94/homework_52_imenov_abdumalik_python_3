@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% block title %}{{ status.title}}{% endblock %}
 {% block menu %}
-
-    <li><a href="{% url 'status_update' status.pk %}">Edit</a></li>
-    <li><a href="{% url 'status_delete' status.pk %}">Delete</a></li>
-
 {% endblock %}
 {% block content %}
     <div class="container">
+        {% for status in statuses %}
         <h1>{{ status.summary}}</h1>
         <p>Category: {{ status.description }}</p>
         <p>Created by {{ status.status }} at {{ status.created_at|date:'Y-m-d H:i:s' }}</p>
         <div class="pre">{{ status.type }}</div>
+        <li><a href="{% url 'status_update' status.pk %}">Edit</a></li>
+        <li><a href="{% url 'status_delete' status.pk %}">Delete</a></li>
+         {% endfor %}
     </div>
 {% endblock %}

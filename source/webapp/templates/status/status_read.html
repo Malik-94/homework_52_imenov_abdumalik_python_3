@@ -4,7 +4,7 @@
 {% block content %}
     <h1>Status:</h1>
     <hr/>
-    {% for status in status %}
+    {% for status in statuses %}
         <h2>{{ status.statuses }}</h2>
         <p><a href="{% url 'status_update' status.pk %}">Edit</a></p>
         <p><a href="{% url 'status_delete' status.pk %}">Delete</a></p>

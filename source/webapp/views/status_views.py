@@ -2,14 +2,24 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View, TemplateView
 from webapp.models import Status
 from webapp.forms import StatusForm
+from django.views.generic import ListView
 
 
-class StatusList(View):
-    def get(self, request, *args, **kwargs):
-        status = Status.objects.all()
-        return render(request, 'status/status_read.html', context={
-            'status': status
-        })
+
+class StatusList(ListView):
+    context_object_name = 'statuses'
+    model = Status
+    template_name = 'status/status.html'
+
+
+
+class StatusIndex(TemplateView):
+    template_name = 'status.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['status'] = Status.objects.all()
+        return context
+
 
 
 class StatusCreateView(View):

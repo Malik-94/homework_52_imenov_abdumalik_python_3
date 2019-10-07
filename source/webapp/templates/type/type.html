@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
 {% block title %}{{ type.title}}{% endblock %}
 {% block menu %}
-
-    <li><a href="{% url 'type_update' type.pk %}">Edit</a></li>
-    <li><a href="{% url 'type_delete' type.pk %}">Delete</a></li>
-
 {% endblock %}
 {% block content %}
     <div class="container">
+          {% for type in types %}
         <h1>{{ type.summary}}</h1>
         <p>Category: {{ type.description }}</p>
         <p>Created by {{ type.type }} at {{ type.created_at|date:'Y-m-d H:i:s' }}</p>
-
         <div class="pre">{{ type.type }}</div>
+         <li><a href="{% url 'type_update' type.pk %}">Edit</a></li>
+        <li><a href="{% url 'type_delete' type.pk %}">Delete</a></li>
+       {% endfor %}
 
     </div>
 {% endblock %}
